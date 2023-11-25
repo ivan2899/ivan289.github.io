@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental</title>
+
+    <script src="https://kit.fontawesome.com/a2dd6045c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/ico" href="img/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amita&family=Poppins:ital@1&display=swap" rel="stylesheet">
+</head>
+
+
+<!-- TODO: SACAR EL DARK DEL BODY PARA QUE FUNCIONE EL MODO OSCURO-->
+<!-- TODO: Arreglar el margen que queda entre el body y el section-->
+<!-- TODO: PONER AL INICION UN TEXTO DE BIENVENIDA, LUEGO 'CALCULADORA' DSPS 'CONVERSORES' (la pantalla dividida a la mitad y en un lado de numeros y otro de grados) DSPS 'CONTADORES' (lo mismo que para los conversores, con contar palabras pasar palabras) DSPS 'JUEGOS' (que esté el ahorcado, el adivina el numero, un tateti contra la maquina, etc, etc)-->
+<!-- TODO: 
+    Calculadora: Arreglo de errores
+    Conversor Numeros: Hacer que funcione hexadecimal, octal y romano, arreglo de errores, css
+    Conversor grados: css
+    Pasar may a min:
+    Contador palabras:
+
+Contar dias:
+Ingresar una fecha de nacimiento y contar dias hasta la fecha actual, teniendo en cuenta años biciestos
+    
+Zona calculadora:
+. Calculadora de plazo fijo
+. Calcular IVA
+
+
+Hacer footer y #Contacto
+Conectar PHP con el mail para recibir correos
+
+
+
+
+
+
+-->
+
+
+<body id="page-top">
+
+    <nav>
+        <div class="telefono">
+            <div class="header">
+                <div class="logo"><img class="imagen" src="img/logo.png" alt="" width="50px" height="50px">Elemental
+                </div>
+                <div class="mas">
+                    <button id="bMore"><i class="fa-solid fa-bars"></i></button>
+                </div>
+            </div>
+
+
+            <div class="links" id="links">
+                <a href="#about">Acerca de</a>
+                <a href="#calculadoras">Calculadoras</a>
+                <a href="#conversores">Conversores</a>
+                <a href="#end">Contacto</a>
+                <a href="#">Buscar</a>
+                <a href="#">Registrarse</a>
+                <a href="#page-top">Inicio</a>
+            </div>
+        </div>
+
+
+        <div class="pc">
+            <div class="logo"><img class="imagen" src="img/logo.png" alt="" width="50px" height="50px">Elemental</div>
+            <div class="principal">
+                <a href="#about">Acerca de</a>
+                <a href="#calculadoras">Calculadoras</a>
+                <a href="#conversores">Conversores</a>
+                <a href="#end">Contacto</a>
+            </div>
+
+            <div class="secundario full">
+                <a href="#">Buscar</a>
+                <a href="#">Registrarse</a>
+                <a href="#page-top">Inicio</a>
+            </div>
+
+            <div class="secundario-mini">
+                <a href="#" class="mas">Más</a>
+                <div class="submenu">
+                    <a href="#">Buscar</a>
+                    <a href="#">Registrarse</a>
+                    <a href="#page-top">Inicio</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- <section id="Aolo"> -->
+    <span>Modo oscuro/claro: </span>
+    <button class="switch" id="switch">
+        <span><i class="fa-solid fa-sun"></i></span>
+        <span><i class="fa-solid fa-moon"></i></span>
+    </button>
+
+    <div id="about" class="centrar">
+        <p style="color: orange; text-align: justify; width: 40%; justify-content: center; align-items: center;">Bienvenidos, esta es una pagina realizada para practicar Desarrollo Web, disculpen los inconvenientes y/o errores que pueden llegar a suceder, A disfrutar!!</p>
+
+        <p>Ante cualquier consulta/duda o sugerencia no dude en enviar un mail</p>
+    </div>
+
+    <hr class="hrSeparacion">
+
+    <h2 class="centrar h2Titulos" id="calculadoras">Calculadoras</h2>
+    <article class="calculadora centrar">
+        <h3>Calculadora</h3>
+
+        <input id="txtIdResultado" type="text" readonly placeholder="Resultado" class="inputTxt">
+        <div class="botones">
+            <button onclick="CargarCaracter(1, 'txtIdResultado');" class="btnCalcu">1</button>
+            <button onclick="CargarCaracter(2, 'txtIdResultado');" class="btnCalcu">2</button>
+            <button onclick="CargarCaracter(3, 'txtIdResultado');" class="btnCalcu">3</button>
+            <button onclick="OperadorCargado('+', 'txtIdResultado');" class="btnCalcu btnOp">+</button>
+
+            <br>
+            <button onclick="CargarCaracter(4, 'txtIdResultado');" class="btnCalcu">4</button>
+            <button onclick="CargarCaracter(5, 'txtIdResultado');" class="btnCalcu">5</button>
+            <button onclick="CargarCaracter(6, 'txtIdResultado');" class="btnCalcu">6</button>
+            <button onclick="OperadorCargado('-', 'txtIdResultado');" class="btnCalcu btnOp">-</button>
+            <button onclick="LimpiarId('txtIdResultado');" class="btnCalcu btnOp">AC</button>
+
+            <br>
+            <button onclick="CargarCaracter(7, 'txtIdResultado');" class="btnCalcu">7</button>
+            <button onclick="CargarCaracter(8, 'txtIdResultado');" class="btnCalcu">8</button>
+            <button onclick="CargarCaracter(9, 'txtIdResultado');" class="btnCalcu">9</button>
+            <button onclick="OperadorCargado('*', 'txtIdResultado');" class="btnCalcu btnOp">x</button>
+
+            <br>
+            <button onclick="CargarCaracter('.', 'txtIdResultado');" class="btnCalcu btnOp">.</button>
+            <button onclick="CargarCaracter(0, 'txtIdResultado');" class="btnCalcu">0</button>
+            <button onclick="CargarResultado('txtIdResultado');" class="btnCalcu btnOp"
+                style="background-color: aqua; ">=</button>
+            <button onclick="OperadorCargado('/', 'txtIdResultado');" class="btnCalcu btnOp">÷</button>
+            <button onclick="RemoverUltimocaracter('txtIdResultado');" class="btnCalcu btnOp">⌫ </button>
+        </div>
+
+    </article>
+    <hr class="hrSeparacion">
+
+    <h2 class="centrar h2Titulos" id="conversores">Conversores</h2>
+    <div class="conversores">
+        <article class="conversor-numeros">
+            <h3>Conversor de numeros </h3>
+            <p>Ingrese un numero</p>
+            <input id="txtIdNumero" type="text" placeholder="Numero"><br>
+            <label for="num">Numero ingresado en formato:</label>
+
+            <select name="num" id="ingresoNum">
+                <option value="1">Decimal</option>
+                <option value="2">Binario</option>
+                <option value="3">Hexadecimal</option>
+                <option value="4">Octal</option>
+                <option value="5">Romano</option>
+            </select>
+
+            <br> <br>
+            <span id="resNum" style="color: orange;"> </span>
+
+            <p>Convertir a:</p>
+            <button onclick="OperarNumeros('txtIdNumero', 'ingresoNum', 1);">Decimal</button>
+            <button onclick="OperarNumeros('txtIdNumero', 'ingresoNum', 2);">Binario</button>
+            <button onclick="OperarNumeros('txtIdNumero', 'ingresoNum', 3);">Hexadecimal</button>
+            <button onclick="OperarNumeros('txtIdNumero', 'ingresoNum', 4);">Octal</button>
+            <button onclick="OperarNumeros('txtIdNumero', 'ingresoNum', 5);">Romano</button>
+        </article>
+
+
+        <article class="conversor-grados" id="convertirGrados">
+            <h3>Conversor de grados </h3>
+            <p>Ingrese una temperatura</p>
+            <input id="txtIdTemperatura" type="text" placeholder="Temperatura"><br>
+
+            <label for="temp">Temperatura ingresada en:</label>
+
+            <select name="temp" id="ingresoTemp">
+                <option value="1">Celsius</option>
+                <option value="2">Kelvin</option>
+                <option value="3">Farenheit</option>
+            </select>
+
+            <br> <br>
+            <span id="resTemp" style="color: orange;"> </span>
+
+            <p>Convertir a:</p>
+            <button onclick="OperarGrados('txtIdTemperatura', 'ingresoTemp', 1);" class="btnCG">Celsius</button>
+            <button onclick="OperarGrados('txtIdTemperatura', 'ingresoTemp', 2);" class="btnCG">Kelvin</button>
+            <button onclick="OperarGrados('txtIdTemperatura', 'ingresoTemp', 3);" class="btnCG">Farenheit</button>
+        </article>
+    </div>
+    <hr class="hrSeparacion">
+
+    <h2 class="centrar h2Titulos" id="textos">Textos</h2>
+    <div class="textos">
+        <article class="pasar-palabras">
+            <h3>Pasar a mayus o min</h3>
+            <textarea name="" id="txtTextoPalabras" cols="50" rows="10"></textarea>
+            <br> <br>
+            <div>
+                <label for="eleccion">Elija una opcion:</label>
+                <br>
+                <input type="radio" name="eleccion" value="1"> Primer letra de cada palabra
+                <br>
+                <input type="radio" name="eleccion" value="2"> Texto completo en min
+                <br>
+                <input type="radio" name="eleccion" value="3"> Texto completo en may
+                <br>
+                <input type="radio" name="eleccion" value="4"> Formato por defecto
+            </div>
+
+            <br>
+            <button onclick="ConvertirTexto('txtTextoPalabras', 'eleccion');" class="aceptar btn">Aceptar</button>
+            <button onclick="LimpiarId('txtTextoPalabras');" class="cancelar btn">Borrar todo</button>
+
+            <br>
+            <span id="spanPalMayMin"></span>
+        </article>
+
+        <article class="contador">
+            <h3>Contador de letras/palabras</h3>
+            <textarea name="" id="txtTextoContador" cols="50" rows="10"></textarea>
+            <br> <br>
+            <div>
+                <label for="eleccionCont">Elija una opcion:</label>
+                <br>
+                <input type="radio" name="eleccion2" id="contLetra"> Letras
+                <br>
+                <input type="radio" name="eleccion2" id="contPalabras"> Palabras
+                <br>
+            </div>
+
+            <br><span></span>
+            <br>
+            <button class="aceptar btn">Aceptar</button>
+            <button onclick="LimpiarId('txtTextoContador')" class="cancelar btn">Borrar todo</button>
+        </article>
+    </div>
+
+    <hr class="hrSeparacion">
+    <h2 class="centrar h2Titulos" id="otros">Otros</h2>
+    <article class="suma-numeros">
+        <h3></h3>
+
+
+    </article>
+
+    <hr class="hrSeparacion">
+    <h2 class="centrar h2Titulos" id="juegos">Juegos</h2>
+    <article class="suma-numeros">
+
+
+    </article>
+
+
+    <p style="font-size: 50px;">SITIO EN CONSTRUCCION, DISCULPE LAS MOLESTIAS 😀</p>
+    <!--  </section>-->
+
+
+    <!-- CONTACT -->
+    <div class="form__consulta" style="margin: 0;">
+
+        <div class="flex-container">
+            <form class="form">
+                <div class="form__section">
+                    <input type="email" class="form__input" placeholder="Email">
+                </div>
+                <div class="form__section">
+                    <input type="text" class="form__input" placeholder="Asunto">
+                </div>
+                <div class="form__section">
+                    <textarea class="form__input" placeholder="Escriba su mensaje"></textarea>
+                </div>
+                <div class="form__section">
+                    <input type="submit" class="form__input">
+                </div>
+            </form>
+            <div class="form-img">
+                <img src="https://www.pngplay.com/wp-content/uploads/6/Email-Icon-Transparent-Background.png">
+            </div>
+        </div>
+
+        <div>
+            <a class="logoSocial lgIg" href="https://www.instagram.com/" target="_BLANK"><i class="fab fa-instagram"></i></a>
+            <a class="logoSocial lgFb" href="https://www.facebook.com/" target="_BLANK"><i class="fab fa-facebook-f"></i></a>
+            <a class="logoSocial lgTw" href="https://twitter.com/" target="_BLANK"><i class="fab fa-twitter"></i></a>
+            <a class="logoSocial lgTg" href="https://telegram.org/" target="_BLANK"><i class="fab fa-telegram"></i></a>
+            <a class="logoSocial lgDs" href="https://discord.com/" target="_BLANK"><i class="fab fa-discord"></i></a>
+    
+        </div>
+    </div>
+
+    <footer >
+        <div id="end" style="color: white;">
+            <span>Iván Leonel Córdoba ® 2023</span>
+        </div>
+    </footer>
+
+
+    <script>
+        const bMore = document.getElementById('bMore');
+        const links = document.getElementById('links');
+
+        bMore.addEventListener('click', (e) => {
+            links.classList.toggle('collapsed')
+        })
+    </script>
+
+
+    <script>
+        const btnSwtich = document.getElementById('switch');
+        const sect = document.getElementById('Aolo');
+
+
+        btnSwtich.addEventListener('click', (e) => {
+            document.body.classList.toggle('dark')
+            btnSwtich.classList.toggle('active');
+        });
+    </script>
+
+    <script src="js/calculadora.js"></script>
+    <script src="js/conversorGr.js"></script>
+    <script src="js/conversorNum.js"></script>
+    <script src="js/pasajePal.js"></script>
+    <script src="js/general.js"></script>
+</body>
+
+</html>
